@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator (Minor Project)</title>
+    <link rel="icon" type="image/x-icon" href="images.png" style="border-radius:120px";>
+<head>
+<style>
+body {
+    margin: 0;
+    background: radial-gradient(#1e8fa5,#08506b, black)no-repeat fixed;
+    padding: 50px 0px;
+}
+button.clear {
+    background: #f5400a;
+    color: #fff;
+}
+table {
+    background: rgb(241, 232, 232);
+    padding: 7px 5px;
+    border: 6px solid rgb(0, 0, 0);
+    text-align: center;
+    padding-bottom: 0px;
+    box-shadow: 0px 0px 27px #504a4a;
+    inset: -27px -27px -27px white;
+    border-radius: 20px;
+    margin-top: 90px;
+    line-height: 20px;
+    width: 80px;
+}
+button.equal {
+    width: 88%;
+    background: #0629f1;
+    line-height: 24px;
+}
+button.equal:hover{
+	background: #3f48bd;
+    line-height: 32px;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: unset;
+}
+input[type="text"] {
+    width: 450px;
+    height: 81px;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    font-size: 29px;
+    background: #000000;
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-family: cursive;
+    margin-top: 10px;
+    color: #dedede;
+    border-bottom: 2px solid #cc4014;
+}
+button {
+    padding: 10px 20px;
+    width: 100px;
+    height: 60px;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: cursive;
+    background: #d5e9dd;
+    border: 5px solid rgb(180, 56, 19);
+    color: #020202;
+    border-radius: 6px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 24px;
+    box-shadow: 4px 4px 4px rgb(109, 108, 108);
+    
+}
+button:hover{
+	background: #ee061d;
+    color: #000000;
+    font-size: 32px;  
+    text-align: center;  
+}
+p{
+	background-color: bisque;
+	color: #000;
+	font-size: x-large;
+	font-weight: bolder;
+}
+span{
+	color: #ee061d;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-weight: bolder;
+}
+</style>
+</head>
+
+
+<body>
+	<form name="calcul">
+		<table align="center">
+
+			<tr>
+				<td colspan="4"> <input type="text" name="result" placeholder="0" style="text-align:right"> </td>
+			</tr>
+
+			<tr>
+				<td><button type="button" value="sin" onclick="sin()"> sin </button> </td>
+				<td><button type="button" value="cos" onclick="cos()"> cos</button> </td>
+				<td><button type="button" value="tan" onclick="tan()"> tan </button> </td>
+				<td colspan="2">
+				<button type="button" value="C" class="clear" onclick="remv()"> AC </button>
+			</td>
+			</tr>
+
+			<tr>
+				<td><button type="button" value="x^2" onclick="square()"> x<sup>2 </button> </td>
+				<td><button type="button" value="x^3" onclick="cubed()"> x<sup>3 </button> </td>
+				<td><button type="button" value="sqrt2" onclick="sqrt2()"> &radic; </button> </td>
+				<td><button type="button" value="sqrt3" onclick="sqrt3()"> &#8731; </button> </td>
+			</tr>
+
+			<tr>
+				<td><button type="button" value="1" onclick="number(value)"> 1 </button> </td>
+				<td><button type="button" value="2" onclick="number(value)"> 2 </button> </td>
+				<td><button type="button" value="3" onclick="number(value)"> 3 </button> </td>
+				<td><button type="button" value="BACKSPC" onclick="BACKSPC()"> &larr; </button> </td>
+			</tr>
+
+			<tr>
+				<td><button type="button" value="4" onclick="number(value)"> 4</button> </td>
+				<td><button type="button" value="5" onclick="number(value)"> 5 </button> </td>
+				<td><button type="button" value="6" onclick="number(value)"> 6 </button> </td>
+				<td><button type="button" value="-" onclick="number(value)"> - </button> </td>
+			</tr>
+
+			<tr>
+				<td><button type="button" value="7" onclick="number(value)"> 7 </button> </td>
+				<td><button type="button" value="8" onclick="number(value)"> 8 </button> </td>
+				<td><button type="button" value="9" onclick="number(value)"> 9 </button> </td>
+				<td><button type="button" value="/" onclick="number(value)"> / </button> </td>
+			</tr>
+
+			<tr>
+				<td><button type="button" value="." onclick="number(value)"> . </button> </td>
+				<td><button type="button" value="0" onclick="number(value)"> 0 </button> </td>
+				<td><button type="button" value="*" onclick="number(value)"> * </button> </td>
+				<td><button type="button" value="%" onclick="number(value)"> % </button> </td>
+			</tr>
+
+			<tr>
+				<td colspan="2"> <button type="button" value="=" onclick="equal()" class="equal">=</button> </td>
+				<td><button type="button" value="+" onclick="number(value)"> + </button> </td>
+			</tr>
+
+		</table>
+	</form>
+
+
+	<script>
+		function sin(){
+		document.calcul.result.value=Math.sin(document.calcul.result.value);
+		}
+
+		function cos(){
+		document.calcul.result.value=Math.cos(document.calcul.result.value);
+		}
+
+		function tan(){
+		document.calcul.result.value=Math.tan(document.calcul.result.value);
+		}
+
+		function BACKSPC(){
+		var a = document.calcul.result.value;
+		document.calcul.result.value = a.substr(0, a.length-1);
+		}
+
+		function square(){
+		document.calcul.result.value = Math.pow(document.calcul.result.value, 2);
+		}
+
+		function cubed(){
+		document.calcul.result.value = Math.pow(document.calcul.result.value, 3);
+		}
+
+		function sqrt2(){
+		document.calcul.result.value = Math.pow(document.calcul.result.value, 1/2);
+		}
+
+		function sqrt3(){
+		document.calcul.result.value = Math.pow(document.calcul.result.value, 1/3);
+		}
+
+		function number(value){
+		document.calcul.result.value += value;
+		}
+
+		function remv(){
+		document.calcul.result.value=" ";
+		}
+
+		function equal(){
+		document.calcul.result.value=eval(document.calcul.result.value);
+		}
+	</script>
+	<div align="center">
+		<p>
+			<span>Remainder</span> here in this calculator the trigonometric function will be different than the one which we used to know the reason is because here in this calculator
+			it is taking the angle values as decimals instead of degrees. 
+		</p>
+	</div>
+</body>
+</html>
